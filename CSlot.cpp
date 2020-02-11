@@ -327,10 +327,4 @@ class CSlot {
 
 			} while(isRunning == true); //end of do loop 
 		} //end of run()
-}; //end of CSlot class definition
-
-int main() {
-	CSlot machine;
-	machine.run();
-	return 0; 
-}
+}; 
