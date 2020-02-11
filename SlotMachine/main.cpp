@@ -12,7 +12,10 @@
 * 	- windows screen blanking now done in a less-vulnerable manner
 *	- split runtime.cpp and CSlot.h from each other 
 */
-	
+#incliude <iostream>
+#include "CSlot.cpp"
+using namespace std;
+
 int main() {
 	CSlot machine;
 	machine.run();
