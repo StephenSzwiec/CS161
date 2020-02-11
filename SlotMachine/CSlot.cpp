@@ -19,8 +19,8 @@
 
 #include <iostream> 
 #include <ctype.h> //toupper(char)
-#include "CMoney.h"
-#include "CSpinner.h"
+#include "CMoney.hpp"
+#include "CSpinner.hpp"
 
 using namespace std;
 
