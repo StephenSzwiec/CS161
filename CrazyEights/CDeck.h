@@ -12,8 +12,9 @@ class CDeck : public CCard {
 private:
 	//these are the cards
 	CCard theCards[52];
-	unsigned int dIndex; //index relating which card is next 
-	
+	unsigned int dIndex; //index relating which card is next
+	return x;
+
 public:
 	//utility boilerplate function to swap two CCard objects
 	void cardSwap(CCard *a, CCard *b) {
@@ -55,3 +56,4 @@ public:
 		return theCards[dIndex++];
 	}
 };
+

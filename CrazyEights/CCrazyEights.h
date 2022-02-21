@@ -5,11 +5,11 @@
 
 #pragma once
 #include "CPlayer.h"
-#include "CDeck.h" 
+#include "CDeck.h"
 #include <stdio.h>
 
 //the following make the "any" key work in unix
-#include <termios.h> 
+#include <termios.h>
 #include <unistd.h>
 #include <fcntl.h>
 
@@ -33,7 +33,7 @@ private:
 	//HANDLE currentTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
 
 public:
-	
+
 	//utility function to properly clear the terminal in unix
 	void displayClear() {
 		cout << "\033c" << endl;
@@ -44,13 +44,13 @@ public:
 	// 	COORD coordScreen = { 0, 0 };
 	// 	DWORD cCharsWritten;
 	// 	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	// 	DWORD dwConSize; 
+	// 	DWORD dwConSize;
 	// 	if (!GetConsoleScreenBufferInfo(hConsole, &csbi)) {
 	// 		return;
 	// 	}
 	// 	dwConSize = csbi.dwSize.X * csbi.dwSize.Y; //set the console size based on current window
 	// 	if(!FillConsoleOutputCharacter(hConsole, (TCHAR) ' ', dwConSize, coordScreen, &cCharsWritten)) {
-	// 		//fill entire buffer with spaces 
+	// 		//fill entire buffer with spaces
 	// 		return;
 	// 	}
 	// 	if (!FillConsoleOutputAttribute(hConsole, csbi.wAttributes, dwConSize, coordScreen, &cCharsWritten)) {
@@ -85,7 +85,7 @@ public:
 						cout << "                                                                                " << endl;
 						cout << "                                   ▄▄▄▄                                   " << endl;
 						cout << "   ██                           ██▀▀▀▀█                                         " << endl;
-						cout << " ███████    ▄████▄             ██▀        ██▄████   ▄█████▄  ████████  ▀██  ███" << endl; 
+						cout << " ███████    ▄████▄             ██▀        ██▄████   ▄█████▄  ████████  ▀██  ███" << endl;
 						cout << "   ██      ██▀  ▀██            ██         ██▀       ▀ ▄▄▄██      ▄█▀    ██▄ ██  " << endl;
 						cout << "   ██      ██    ██            ██▄        ██       ▄██▀▀▀██    ▄█▀       ████▀  " << endl;
 						cout << "   ██▄▄▄   ▀██▄▄██▀             ██▄▄▄▄█   ██       ██▄▄▄███  ▄██▄▄▄▄▄     ███   " << endl;
@@ -193,12 +193,12 @@ public:
 				cin.clear();
 				cin.ignore(256,'\n');
 				cin >> numberPlayers;
-			} 
+			}
 			else if(cin.fail()) {
 				cout << "Error: non-number input. please try again: " << endl;
 				cin.clear();
 				cin.ignore(256,'\n');
-				cin >> numberPlayers; 
+				cin >> numberPlayers;
 			}
 			else {
 				isInputError = false;
@@ -273,7 +273,7 @@ public:
 		topCard = gameDeck.dealCard();
 	}
 
-	//Desructor method 
+	//Desructor method
 	~CCrazyEights(){
 		delete[] players;
 	}
@@ -282,7 +282,7 @@ public:
 	//otherwise play a card onto the stack then remove that same card from hand as normal
 	void playCard(int index) {
 		if ((players[currentTurn].getNumCards() - 1) == 0) {
-				hasAnyoneWon = true; 
+				hasAnyoneWon = true;
 		}
 		topCard = players[currentTurn].getCard(index - 1);
 		cout << "played a " << players[currentTurn].getCard(index - 1) << endl;
@@ -320,7 +320,7 @@ public:
 				cout << "Crazy!" << endl;
 			}
 		}
-	
+
 	}
 
 	//do a human turn for a player
@@ -332,12 +332,12 @@ public:
 		do { //godawful user error handler because humans are dumb
 			cout << "Your choice: ";
 			cin >> localUserInput;
-			if (cin.fail()) { 
+			if (cin.fail()) {
 				cout << "Error: invalid input. Please try again." << endl;
 				cin.clear();
 				cin.ignore(256, '\n');
 			}
-			else if (localUserInput > players[selector].getNumCards()) { 
+			else if (localUserInput > players[selector].getNumCards()) {
 				cout << "Error: invalid input. Please try again." << endl;
 				cin.clear();
 				cin.ignore(256, '\n');
@@ -353,12 +353,12 @@ public:
 					cin.clear();
 					cin.ignore(256, '\n');
 				}
-				//the right card in the right place 
-				else { 
+				//the right card in the right place
+				else {
 					correctInput = true;
 				}
 			}
-			//drawing a card 
+			//drawing a card
 			else {
 				correctInput = true;
 			}
@@ -387,7 +387,7 @@ public:
 			}
 			else {
 			}
-		} 
+		}
 		if (playPossible == true) {
 			cout << "The CPU Player ";
 			playCard(foundIndex);
@@ -424,7 +424,7 @@ public:
 			displayClear();
 		}
 	}
-	
+
 	//iterates through who has the turn, and gives them the turn until someone has won
 	void run() {
 		while (hasAnyoneWon == false) {
@@ -446,7 +446,7 @@ public:
 			else {
 				currentTurn++;
 			}
-		} 
+		}
 	}
 
 };

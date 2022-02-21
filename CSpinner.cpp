@@ -2,13 +2,13 @@
 #include <time.h>
 #include <bits/stdc++.h>
 #include <vector>
- 
+
 using namespace std;
 
 //creates a cspinner object, which represents the randomness of a weighted percentile, like a spinner
 class Cspinner {
 	private:
-		unsigned int currentSegment = 0; //initialize to zero to avoid evils associated with new ints 
+		unsigned int currentSegment = 0; //initialize to zero to avoid evils associated with new ints
 		const string segmentNames[5] = {"apple","orange","cherry","banana","peach"};
 		std::vector<int> segmentWeights;
 
@@ -27,18 +27,18 @@ class Cspinner {
 			}
 		}
 
-		//spin randomizes the currentSegment based on segment weights 
+		//spin randomizes the currentSegment based on segment weights
 		void spin() {
 
 			int i = rand() % 100 + 1; //generate int from 1 to 100
 			int j = 0;
 			while ( j < 5 && i > 0) {
 				i = i - segmentWeights[j];
-				if( i <= 0 ) { 
+				if( i <= 0 ) {
 					currentSegment = j;
 				}
-				j++; 
-			} 
+				j++;
+			}
 		}
 
 		//show prints out the segmentName referenced by currentSegment
@@ -51,7 +51,7 @@ int main()
 {
 	//initialize randomness
 	srand(time(NULL));
-	//create spinners 
+	//create spinners
 	Cspinner w1;
 	Cspinner w2;
 	Cspinner w3(80,5,5,5,5);

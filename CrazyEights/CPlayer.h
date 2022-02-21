@@ -24,36 +24,36 @@ public:
 
 	//constructor initializes with 5 cards, and is computer, requires a deck to build
 	CPlayer(CDeck* deckIn) {
-		numCards = 5; 
+		numCards = 5;
 		for(int i = 0; i < 5; i++) {
-			hand[i] = deckIn->dealCard(); 
+			hand[i] = deckIn->dealCard();
 		}
 		isComputer = true;
 	}
 
-	//overloaded constructor to initialize with a number of cards, requires a deck to build, still a computer 
+	//overloaded constructor to initialize with a number of cards, requires a deck to build, still a computer
 	CPlayer(CDeck* deckIn, int handSize) {
-		numCards = handSize; 
+		numCards = handSize;
 		for(int i = 0; i < handSize; i++) {
-			hand[i] = deckIn->dealCard(); 
+			hand[i] = deckIn->dealCard();
 		}
 		isComputer = true;
 	}
 
-	//overloaded constructor to initialize with a cpu player option, requires a deck to build 
+	//overloaded constructor to initialize with a cpu player option, requires a deck to build
 	CPlayer(CDeck* deckIn, bool cpu) {
-		numCards = 5; 
+		numCards = 5;
 		for(int i = 0; i < 5; i++) {
-			hand[i] = deckIn->dealCard(); 
+			hand[i] = deckIn->dealCard();
 		}
 		isComputer = cpu;
 	}
 
 	//overloaded constructor to initialize with both options, requires a deck to build
 	CPlayer(CDeck* deckIn, int handSize, bool cpu) {
-		numCards = handSize; 
+		numCards = handSize;
 		for(int i = 0; i < handSize; i++) {
-			hand[i] = deckIn->dealCard(); 
+			hand[i] = deckIn->dealCard();
 		}
 		isComputer = cpu;
 	}
@@ -70,13 +70,13 @@ public:
 		hand[numCards++] = newCard;
 	}
 
-	//discard a card at an index, decrement number of cards after swapping 
+	//discard a card at an index, decrement number of cards after swapping
 	void discardCard(int input) {
 		cardSwap(&hand[input], &hand[numCards - 1]); //swap these to prevent hand fragmentation
 		numCards--;
 	}
 
-	//utility function to print out the hand 
+	//utility function to print out the hand
 	void printHand() {
 		for(int i =0 ; i < numCards; i++) {
 			cout << i+1 <<") ";
@@ -108,11 +108,10 @@ public:
 	void setCPU(bool input) {
 		isComputer = input;
 	}
-	
+
 	//determines if a card can be played in CrazyEights
 	bool canPlay(int index, CCard other) {
 		return (hand[index] == other);
 	}
 };
-
 
